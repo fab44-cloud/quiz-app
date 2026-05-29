@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import StartScreen from "./components/StartScreen"
 import Question from "./components/Question"
 
