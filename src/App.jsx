@@ -31,16 +31,22 @@ export default function App() {
         setQuizStarted(true)
     }
 
-    console.log("Current questions", questions)
+    console.log("Current questions:", questions)
     return (
         <main>
             {!quizStarted ? (
                 <StartScreen handleClick={startQuiz}/>
             ) : (
                 <div>
-                    <Question />
-                    <Question />
-                    <Question />
+                    {questions.map((item) => {
+                        return (
+                            <Question 
+                                key={item.question} 
+                                question={item.question}
+                                answers={item.all_answers}
+                            />
+                        )
+                    })}
                     <button>Check Answers</button>
                 </div>
             )}
