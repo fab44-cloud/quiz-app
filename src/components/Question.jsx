@@ -6,7 +6,7 @@ export default function Question(props) {
             <h3>{props.question}</h3>
             <div className="choices-container">
                 {props.answers.map((choice) => {
-                    return <button key={choice}>{choice}</button>
+                    return <button key={choice} className="choice-btn">{choice}</button>
                 })}
             </div>
             <hr />
