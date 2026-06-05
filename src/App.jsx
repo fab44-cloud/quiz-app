@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import StartScreen from "./components/StartScreen"
 import Question from "./components/Question"
+import he from "he"
 
 export default function App() {
     // State variables
@@ -13,15 +14,29 @@ export default function App() {
             .then(res => res.json())
             .then(data => {
                 const formattedQuestions = data.results.map(question => {
+
+                    // Combine choices into one list
                     const choices = [
                         ...question.incorrect_answers,
                         question.correct_answer
                     ]
+
+                    // Shuffle the list so a correct answer moves to a random spot
+                    const shuffledChoices = choices.sort(() => Math.random() - 0.5)
+                    console.log(shuffledChoices)
+
+                    // Clean up the scrambled answers
+                    const cleanChoices = shuffledChoices.map(choice => he.decode(choice))
+                    console.log(cleanChoices)
+
                     return {
-                        ...question,
-                        all_answers: choices
+                        id: crypto.randomUUID(),
+                        questionText: he.decode(question.question),
+                        all_answers: cleanChoices,
+                        correctAnswer: question.correct_answer
                     }
                 })
+
                 setQuestions(formattedQuestions)
             })
         }
@@ -31,7 +46,6 @@ export default function App() {
         setQuizStarted(true)
     }
 
-    console.log("Current questions:", questions)
     return (
         <main>
             {!quizStarted ? (
@@ -41,8 +55,8 @@ export default function App() {
                     {questions.map((item) => {
                         return (
                             <Question 
-                                key={item.question} 
-                                question={item.question}
+                                key={item.id} 
+                                question={item.questionText}
                                 answers={item.all_answers}
                             />
                         )
