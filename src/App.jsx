@@ -23,17 +23,20 @@ export default function App() {
 
                     // Shuffle the list so a correct answer moves to a random spot
                     const shuffledChoices = choices.sort(() => Math.random() - 0.5)
-                    console.log(shuffledChoices)
 
-                    // Clean up the scrambled answers
-                    const cleanChoices = shuffledChoices.map(choice => he.decode(choice))
-                    console.log(cleanChoices)
+                    const answerObjects = shuffledChoices.map(choice => {
+                        return {
+                            id: crypto.randomUUID(),
+                            text: he.decode(choice),
+                            isSelected: false,
+                            isCorrect: choice === question.correct_answer 
+                        }
+                    })
 
                     return {
                         id: crypto.randomUUID(),
                         questionText: he.decode(question.question),
-                        all_answers: cleanChoices,
-                        correctAnswer: question.correct_answer
+                        all_answers: answerObjects,
                     }
                 })
 
@@ -46,6 +49,28 @@ export default function App() {
         setQuizStarted(true)
     }
 
+    function selectAnswer(questionId, answerId) {
+        setQuestions(prevQuestions => {
+            return prevQuestions.map(question => {
+                if (question.id !== questionId) {
+                    return question
+                }
+
+                const updatedAnswers = question.all_answers.map(answer => {
+                    return {
+                        ...answer,
+                        isSelected: answer.id === answerId
+                    }
+                })
+
+                return {
+                    ...question,
+                    all_answers: updatedAnswers
+                }
+            })
+        })
+    }
+
     return (
         <main>
             {!quizStarted ? (
@@ -55,9 +80,11 @@ export default function App() {
                     {questions.map((item) => {
                         return (
                             <Question 
-                                key={item.id} 
+                                key={item.id}
+                                id={item.id}
                                 question={item.questionText}
                                 answers={item.all_answers}
+                                handleSelect={selectAnswer}
                             />
                         )
                     })}
