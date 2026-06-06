@@ -7,6 +7,8 @@ export default function App() {
     // State variables
     const [quizStarted, setQuizStarted] = useState(false)
     const [questions, setQuestions] = useState([])
+    const [checkedAnswers, setCheckedAnswers] = useState(false)
+    const [score, setScore] = useState(0)
 
     useEffect(() => {
         if (quizStarted) {
@@ -71,6 +73,22 @@ export default function App() {
         })
     }
 
+    function checkAnswers() {
+        let finalScore = 0
+
+        questions.forEach(question => {
+            question.all_answers.forEach(answer => {
+                if (answer.isSelected && answer.isCorrect) {
+                    finalScore++
+                }
+            })
+        })
+
+        setScore(finalScore)
+        setCheckedAnswers(true)
+        console.log(finalScore)
+    }
+
     return (
         <main>
             {!quizStarted ? (
@@ -88,7 +106,20 @@ export default function App() {
                             />
                         )
                     })}
-                    <button>Check Answers</button>
+                    <div className="footer-container">
+                        {checkedAnswers ? (
+                            <div className="score-box">
+                                <span>You scored {score}/5 correct answers</span>
+                                <button onClick={() => window.location.reload()} className="play-again-btn">
+                                    Play Again
+                                </button>
+                            </div>
+                        ) : (
+                            <button onClick={checkAnswers} className="check-btn">
+                                Check Answers
+                            </button>
+                        )}
+                    </div>
                 </div>
             )}
         </main>
