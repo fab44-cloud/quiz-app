@@ -86,7 +86,6 @@ export default function App() {
 
         setScore(finalScore)
         setCheckedAnswers(true)
-        console.log(finalScore)
     }
 
     return (
@@ -103,10 +102,12 @@ export default function App() {
                                 question={item.questionText}
                                 answers={item.all_answers}
                                 handleSelect={selectAnswer}
+                                quizOver={checkedAnswers}
                             />
                         )
                     })}
-                    <div className="footer-container">
+                    {questions.length > 0 && (
+                        <div className="footer-container">
                         {checkedAnswers ? (
                             <div className="score-box">
                                 <span>You scored {score}/5 correct answers</span>
@@ -120,6 +121,7 @@ export default function App() {
                             </button>
                         )}
                     </div>
+                    )}
                 </div>
             )}
         </main>
