@@ -25,3 +25,17 @@ body {
   background-color: #D6DBF5;
   color: #293264;
 }
+
+.choice-btn.correct {
+  background-color: #94D7A2;
+  border-color: #94D7A2;
+}
+
+.choice-btn.incorrect {
+  background-color: #F8BCBC;
+  border-color: #F8BCBC;
+}
+
+.choice-btn.faded {
+  opacity: 0.5;
+}
