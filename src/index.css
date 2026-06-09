@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Karla", sans-serif;
   line-height: 1.5;
   color: #293264;
   background-color: #F5F7FB;
@@ -11,6 +11,34 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+div.start-screen-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.start-screen-container > h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 0.2em 0;
+}
+
+div.start-screen-container > p {
+  margin: 0 0 1.8em 0;
+  font-weight: 400;
+}
+
+div.start-screen-container > button {
+  background-color: #4D5B9E;
+  padding: 1em 4em;
+  border-radius: 15px;
+  border: 1px solid #4D5B9E;
+  color: #F5F7FB;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .choice-btn {
