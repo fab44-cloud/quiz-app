@@ -42,14 +42,17 @@ div.quiz-container > p {
 }
 
 div.quiz-container > button {
-  background-color: #4D5B9E;
   padding: 0.8em 3em;
-  border-radius: 15px;
-  border: 1px solid #4D5B9E;
-  color: #F5F7FB;
-  font-weight: 500;
-  cursor: pointer;
   font-size: 1.2rem;
+}
+
+.btn {
+  background-color: #4D5B9E;
+  border: 1px solid #4D5B9E;
+  border-radius: 15px;
+  color: #DEEBF8;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 div.quiz-container > button:hover {
@@ -57,12 +60,18 @@ div.quiz-container > button:hover {
   border: 1px solid #3d487d;
 }
 
+div.choices-container {
+  display: flex;
+  gap: 1em;
+}
+
 .choice-btn {
-  background-color: #F5F7FB;
+  background-color: #DEEBF8;
   border: 0.79px solid #4D5B9E;
   border-radius: 7.94px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  color: #293264;
 }
 
 .choice-btn.selected {
@@ -82,4 +91,24 @@ div.quiz-container > button:hover {
 
 .choice-btn.faded {
   opacity: 0.5;
+}
+
+div.footer-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+div.footer-container button {
+  padding: 0.8em 2em;
+}
+
+div.score-box {
+  display: flex;
+  gap: 1em;
+}
+
+div.score-box > span {
+  color: #DEEBF8;
+  font-size: 1.1rem;
 }
