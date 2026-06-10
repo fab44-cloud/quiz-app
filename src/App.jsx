@@ -11,10 +11,14 @@ export default function App() {
     const [score, setScore] = useState(0)
 
     useEffect(() => {
-        if (quizStarted) {
-            fetch("https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple")
-            .then(res => res.json())
-            .then(data => {
+        const fetchQuestions = async () => {
+            try {
+                const res = await fetch("https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple")
+
+                if (!res.ok) throw new Error("Network response was not okay.")
+                
+                const data = await res.json()
+
                 const formattedQuestions = data.results.map(question => {
 
                     // Combine choices into one list
@@ -43,7 +47,12 @@ export default function App() {
                 })
 
                 setQuestions(formattedQuestions)
-            })
+            } catch(error) {
+                console.error("Failed to fetch quiz data:", error)
+            }
+        }
+        if (quizStarted) {
+            fetchQuestions()
         }
     }, [quizStarted])
 
