@@ -11,7 +11,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-image:
+    url('assets/blob-yellow.svg'),
+    url('assets/blob-blue.svg');
+  background-position: top right, bottom left;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
 }
+
 
 div.start-screen-container {
   text-align: center;
