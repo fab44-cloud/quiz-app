@@ -111,12 +111,12 @@ export default function App() {
                         {checkedAnswers ? (
                             <div className="score-box">
                                 <span>You scored {score}/5 correct answers</span>
-                                <button onClick={() => window.location.reload()} className="play-again-btn">
+                                <button onClick={() => window.location.reload()} className="play-again-btn btn">
                                     Play Again
                                 </button>
                             </div>
                         ) : (
-                            <button onClick={checkAnswers} className="check-btn">
+                            <button onClick={checkAnswers} className="check-btn btn">
                                 Check Answers
                             </button>
                         )}
