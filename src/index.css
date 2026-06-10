@@ -1,8 +1,8 @@
 :root {
   font-family: "Karla", sans-serif;
   line-height: 1.5;
-  color: #293264;
-  background-color: #F5F7FB;
+  color: #DEEBF8;
+  background-color: #2d384e;
 }
 
 body {
@@ -22,32 +22,39 @@ body {
 }
 
 
-div.start-screen-container {
+div.quiz-container {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-div.start-screen-container > h1 {
+div.quiz-container > h1 {
   font-weight: 700;
   font-size: 2rem;
   margin: 0 0 0.2em 0;
 }
 
-div.start-screen-container > p {
-  margin: 0 0 1.8em 0;
+div.quiz-container > p {
+  margin: 0 0 2em 0;
   font-weight: 400;
+  font-size: 1.1rem;
 }
 
-div.start-screen-container > button {
+div.quiz-container > button {
   background-color: #4D5B9E;
-  padding: 1em 4em;
+  padding: 0.8em 3em;
   border-radius: 15px;
   border: 1px solid #4D5B9E;
   color: #F5F7FB;
   font-weight: 500;
   cursor: pointer;
+  font-size: 1.2rem;
+}
+
+div.quiz-container > button:hover {
+  background-color: #3d487d;
+  border: 1px solid #3d487d;
 }
 
 .choice-btn {
