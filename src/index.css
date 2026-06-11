@@ -105,6 +105,7 @@ div.footer-container button {
 
 div.score-box {
   display: flex;
+  align-items: center;
   gap: 1em;
 }
 
