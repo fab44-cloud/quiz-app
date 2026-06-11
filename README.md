@@ -1,28 +1,23 @@
 # Quiz App 💡
 
-Answer five questions and check your score!
+Test your knowledge by answering five questions across a range of categories and check your score!
 
 ## Live Demo
 
-[View my Business Card here](https://fab44-cloud.github.io/business-card/)
+[View Quiz App here](https://fab44-cloud.github.io/quiz-app/)
 
 ## Features
 
-- **React Components**: Modular structure (Info, About, Interests, Footer).
-- **Font Awesome**: Integrated via `@fortawesome/react-fontawesome` for professional social icons.
-- **Responsive Design**: Optimized for both laptop and mobile screens.
-- **Vite Build**: Lightning-fast development environment and optimized production build.
+- **Score tracking and Evaluation**: Choices change color based on correct or incorrect answers.
 
 ## Tech Stack
 
-- **Framework**: React 18+
+- **Framework**: React
 - **Build Tool**: Vite
-- **Icons**: Font Awesome (Brands & Solid)
-- **Styling**: CSS (Flexbox & Responsive Design)
+- **Styling**: CSS (Flexbox)
 - **Deployment**: GitHub Pages
 
 ## What I Learned
 
-- Managing **Node.js** versions using NVM.
-- Handling **SVG icons** as React components.
-- Deploying a Vite application to **GitHub Pages**.
+- **useEffect**: Utilize useEffect to make an asynchronous API call to the Open Trivia Database API.
+- **HTML Entity Decoding**: Convert HTML entities into plain text using "he".
