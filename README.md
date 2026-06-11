@@ -20,4 +20,4 @@ Test your knowledge by answering five questions across a range of categories and
 ## What I Learned
 
 - **useEffect**: Utilize useEffect to make an asynchronous API call to the Open Trivia Database API.
-- **HTML Entity Decoding**: Convert HTML entities into plain text using "he".
+- **HTML Entity Decoding**: Convert HTML entities into plain text using the "he" library.
