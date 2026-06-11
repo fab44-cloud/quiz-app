@@ -1,6 +1,6 @@
-# Quiz App 📇
+# Quiz App 💡
 
-Answer five questions and check your score! 💡
+Answer five questions and check your score!
 
 ## Live Demo
 
